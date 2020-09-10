@@ -1,0 +1,27 @@
+authorName: wjl
+experimentName: single_experiment
+trialConcurrency: 10
+maxExecDuration: 100h
+maxTrialNum: 100
+#choice: local, remote, pai, kubeflow
+trainingServicePlatform: local
+searchSpacePath: nni/ReconNet_single.json
+#choice: true, false
+useAnnotation: false
+tuner:
+  #choice: TPE, Random, Anneal, Evolution
+  builtinTunerName: TPE
+  classArgs:
+    #choice: maximize, minimize
+    optimize_mode: maximize
+# assessor:
+#   #choice: Medianstop
+#   builtinAssessorName: Medianstop
+#   classArgs:
+#     #choice: maximize, minimize
+#     optimize_mode: maximize
+#   gpuNum: 0
+trial:
+  command: python3 train.py --automl True --train_single True
+  codeDir: nni
+  gpuNum: 3
