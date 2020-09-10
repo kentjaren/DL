@@ -1,0 +1,6 @@
+*.py[cod]
+*.so
+exam.py
+*.jpg
+*.path
+*.txt
